@@ -39,9 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activerecord'
 
   spec.add_development_dependency 'rspec-rails'
-  spec.add_development_dependency 'factory_bot_rails'
-  spec.add_development_dependency 'database_cleaner'
-  spec.add_development_dependency 'shoulda-matchers'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
