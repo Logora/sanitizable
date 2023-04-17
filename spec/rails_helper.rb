@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rails/all'
 require 'active_record'
 require 'logger'
 
