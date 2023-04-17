@@ -2,7 +2,7 @@
 
 require_relative "sanitizable/version"
 require "sanitizable/sanitizable"
+require 'active_record'
 
 module Sanitizable
-  class Error < StandardError; end
 end

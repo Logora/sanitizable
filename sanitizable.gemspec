@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "example-gem", "~> 1.0"
 
   spec.add_dependency 'rails-html-sanitizer', '~> 1.5'
+  spec.add_dependency 'activerecord'
 
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'factory_bot_rails'

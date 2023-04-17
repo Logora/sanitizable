@@ -1,37 +1,16 @@
-require 'bundler/setup'
-require 'sanitizable'
+require 'factory_bot_rails'
+require "sanitizable"
 
-# Load any additional gems you need for your tests here
-require 'rspec/rails'
-require 'shoulda/matchers'
-
-# Configure RSpec
 RSpec.configure do |config|
-  config.before(:suite) do
-    ActiveRecord::Migration.verbose = false
-    ActiveRecord::Schema.define(version: 1) do
-      create_table :dummy_models do |t|
-        t.string :name
-        t.text :description
-        t.timestamps null: false
-      end
-    end
-  end
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = ".rspec_status"
 
-  config.after(:suite) do
-    ActiveRecord::Migration.verbose = false
-    ActiveRecord::Schema.define(version: 1) do
-      drop_table :dummy_models
-    end
-  end
+  config.include FactoryBot::Syntax::Methods
 
-  config.include Sanitizable
-end
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
 
-# Configure shoulda-matchers to work with RSpec
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
   end
 end

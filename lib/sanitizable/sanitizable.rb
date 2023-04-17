@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/concern'
-require 'action_view'
-require 'action_dispatch'
-require 'action_controller'
+require 'rails-html-sanitizer'
 
 module Sanitizable
     extend ActiveSupport::Concern
