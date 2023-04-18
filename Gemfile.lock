@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     sanitizable (1.0.0)
-      activerecord
+      activerecord (>= 6.1)
       rails-html-sanitizer (~> 1.5)
 
 GEM
