@@ -48,7 +48,8 @@ my_object.attribute_1
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/yourusername/sanitizable.
-License
+Bug reports and pull requests are welcome on GitHub at https://github.com/Logora/sanitizable.
+
+## License
 
 The gem is available as open source under the terms of the MIT License.
