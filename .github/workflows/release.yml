@@ -3,7 +3,7 @@ name: Publish Gem
 on:
   push:
     branches:
-      - "*"
+      - "master"
     tags:
       - v*
 jobs:
@@ -13,15 +13,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: '3.2'
+            bundler-cache: true
+
+      - name: Run tests
+        run: |
+          bundle exec rspec
+
       - name: Set author
         run: |
           git config --global user.email "${GITHUB_ACTOR}"
           git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
 
 
-      - name: Release Gem
-        if: contains(github.ref, 'refs/tags/v')
-        uses: cadwallion/publish-rubygems-action@master
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+      - name: Build and publish to RubyGems
+        uses: actionshub/publish-gem-to-rubygems@main
+        with:
+          api_key: ${{ secrets.RUBY_GEMS_API_KEY }}
